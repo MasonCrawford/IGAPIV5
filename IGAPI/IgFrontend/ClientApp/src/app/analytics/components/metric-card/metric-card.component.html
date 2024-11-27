@@ -1,0 +1,15 @@
+<div [ngClass]="['border-' + color + '-500', 'from-' + color + '-200', 'to-' + color + '-100']"
+     class="bg-gradient-to-b  border-b-4 rounded-lg shadow-xl p-5">
+  <div class="flex flex-row items-center">
+    <div class="flex-shrink pr-4">
+      <div [ngClass]="['bg-' + color + '-600']" class="rounded-full p-5 "><i [ngClass]="['fa-' + icon]"
+                                                                             class="fa fa-2x fa-inverse"></i></div>
+    </div>
+    <div class="flex-1 text-right md:text-center">
+      <h5 class="font-bold uppercase text-gray-600">{{lable}}</h5>
+      <h3 class="font-bold text-3xl">{{value}}
+        <ng-content></ng-content>
+      </h3>
+    </div>
+  </div>
+</div>
