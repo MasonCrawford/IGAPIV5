@@ -1,0 +1,17 @@
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\bin\Debug\net6.0\Data.deps.json
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\bin\Debug\net6.0\Data.dll
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\bin\Debug\net6.0\ref\Data.dll
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\bin\Debug\net6.0\Data.pdb
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\bin\Debug\net6.0\Common.dll
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\bin\Debug\net6.0\IgClient.dll
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\bin\Debug\net6.0\Common.pdb
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\bin\Debug\net6.0\IgClient.pdb
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\obj\Debug\net6.0\Data.csproj.AssemblyReference.cache
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\obj\Debug\net6.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\obj\Debug\net6.0\Data.AssemblyInfoInputs.cache
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\obj\Debug\net6.0\Data.AssemblyInfo.cs
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\obj\Debug\net6.0\Data.csproj.CoreCompileInputs.cache
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\obj\Debug\net6.0\Data.csproj.CopyComplete
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\obj\Debug\net6.0\Data.dll
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\obj\Debug\net6.0\ref\Data.dll
+C:\Work\personal\trading api\IGAPIV5\IGAPI\Data\obj\Debug\net6.0\Data.pdb

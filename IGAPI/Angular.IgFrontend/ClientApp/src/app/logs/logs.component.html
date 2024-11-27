@@ -1,0 +1,97 @@
+<page-layout title="Logs" >
+  <div class="flex flex-row flex-wrap grow">
+
+    <div class="w-full">
+
+    </div>
+    <div class="w-full p-4 hidden">
+      <div
+        class="bg-gradient-to-b to-slate-100 from-slate-200 border-blue-500 border-b-4 rounded-lg shadow-xl py-5 px-1">
+        <div class="flex flex-wrap justify-between items-end">
+
+          <div class="grow ml-2 mb-1">
+            <h5 class="flex flex-wrap justify-end font-bold uppercase text-gray-600">filter</h5>
+          </div>
+        </div>
+
+        <form>
+          <div class="flex flex-row flex-wrap">
+
+            <div class="form-control w-full md:w-1/3 pr-4">
+              <label class="label">
+                <span class="label-text">Category</span>
+              </label>
+              <select class="select select-bordered w-full">
+                <option disabled="disabled" selected="selected" value="">category</option>
+
+                <option *ngFor="let category of categories">{{category}}</option>
+              </select>
+            </div>
+
+            <div class="form-control w-full md:w-1/3 pr-4">
+              <label class="label">
+                <span class="label-text">LogLevel</span>
+              </label>
+              <select class="select select-bordered w-full ">
+                <option disabled="disabled" selected="selected" value="">LogLevel</option>
+                <option>Information</option>
+                <option>Warning</option>
+                <option>Error</option>
+                <option>Critical</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex flex-row flex-wrap pt-2">
+            <!--            <button (click)="getLogs()" class="btn btn-primary">Filter</button>-->
+          </div>
+
+        </form>
+
+      </div>
+
+
+    </div>
+
+    <div class="w-full p-4">
+      <div
+        class="bg-gradient-to-b to-slate-100 from-slate-200 border-blue-500 border-b-4 rounded-lg shadow-xl py-5 px-1">
+        <div class="flex flex-wrap justify-between items-end">
+
+          <div class="grow ml-2 mb-1" [hidden]="pagedReponse?.pageNumber == null">
+            <div class="btn-group" >
+              <button class="btn btn-xs" [hidden]="pagedReponse.previousPage == null" (click)="getPrev()">«</button>
+              <button (click)="getPage(1)" class="btn btn-xs" [ngClass]="{'btn-active':1 == pagedReponse.pageNumber}">{{1}}</button>
+
+              <ng-container *ngFor="let i of createRange()" >
+                <button (click)="getPage(i)" class="btn btn-xs" [ngClass]="{'btn-active':i == pagedReponse.pageNumber}">{{i}}</button>
+              </ng-container>
+              <button (click)="getPage(pagedReponse.totalPages)" [hidden]="pagedReponse.totalPages != 1" class="btn btn-xs" [ngClass]="{'btn-active':pagedReponse.totalPages == pagedReponse.pageNumber}">{{pagedReponse.totalPages}}</button>
+
+              <button  [hidden]="pagedReponse.nextPage == null" class="btn btn-xs" (click)="getNext()">»</button>
+            </div>
+
+            <h5 class="flex flex-wrap justify-end font-bold uppercase text-gray-600">Logs {{webjobDetails?.latest_run?.status != null?webjobDetails?.latest_run?.status:""}}</h5>
+          </div>
+        </div>
+
+        <div *ngFor="let log of logs;let i = index" class="flex-none">
+
+          <div [ngClass]="{'alert-info ': log.logLevel == 'Information','alert-warning ': log.logLevel == 'Warning','alert-error ': log.logLevel != 'Information' && log.logLevel != 'Warning'  }"
+               class="alert mb-4">
+            <div class="flex-1 w-full flex-row flex-wrap">
+              <h4 class="flex-1">{{log.categoryName}} {{log.logLevel}}</h4>
+              <div class="flex flex-col md:flex-row pl-1">
+                <h4 class="block">{{log.timestamp|date:'MMM d'}}<span class="pr-1 hidden sm:inline">,</span></h4>
+                <h5 class="block">{{log.timestamp|date:'h:mm a'}}</h5>
+              </div>
+              <p class="text-sm w-full text-base-content text-opacity-60">
+                {{log.msg}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</page-layout>

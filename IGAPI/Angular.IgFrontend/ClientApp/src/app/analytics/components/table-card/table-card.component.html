@@ -1,0 +1,72 @@
+<!--Table Card-->
+<div [hidden]="Orders.length < 1" [ngClass]="[border + ' ', from + ' ', to + ' ']"
+     class="bg-gradient-to-b  border-b-4 rounded-lg shadow-xl py-5 px-1">
+  <div class="flex flex-wrap justify-between items-end">
+
+    <div class="grow ml-2 mb-1">
+      <h5 class="flex flex-wrap justify-end font-bold uppercase text-gray-600">{{label}}</h5>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table *ngIf="Orders" class="table-auto w-full">
+      <!--        {/* Table header */}-->
+      <thead class="text-xs uppercase text-gray-900  rounded-sm">
+      <tr>
+        <th class="p-2">
+          <div class="font-semibold text-left">#</div>
+        </th>
+        <th class="p-2">
+          <div class="font-semibold text-center">Size</div>
+        </th>
+        <th class="p-2">
+          <div class="font-semibold text-center">Risk</div>
+        </th>
+        <th class="p-2">
+          <div class="font-semibold text-center">Target</div>
+        </th>
+        <th class="p-2">
+          <div class="font-semibold text-center">Profit</div>
+        </th>
+        <th class="p-2">
+          <div class="font-semibold text-center">Deposit</div>
+        </th>
+        <th class="p-2">
+          <div class="font-semibold text-center">Direction</div>
+        </th>
+      </tr>
+      </thead>
+      <!--        {/* Table body */}-->
+      <tbody *ngFor="let order of Orders; let i = index" class="text-sm font-medium divide-y divide-gray-100">
+      <!--        {/* Row */}-->
+      <tr>
+        <td class="p-2">
+          <div class=" text-left text-bold">{{i+1}}</div>
+        </td>
+        <td class="p-2">
+          <div class="text-center">{{ order.contractSize }}</div>
+        </td>
+        <td class="p-2">
+          <div class="text-center">{{ order.riskAmount | currency}}</div>
+        </td>
+        <td class="p-2">
+          <div class="text-center">{{ order.targetAmount | currency}}</div>
+        </td>
+        <td class="p-2">
+          <div [ngClass]="{'text-green-500':  order.profit >= 0, 'text-red-500' :  order.profit < 0 }"
+               class="text-center">{{ order.profit | currency}}</div>
+        </td>
+        <td class="p-2">
+          <div [ngClass]="{'text-green-500':  order.deposit >= 2000, 'text-yellow-500' :  order.deposit < 2000 }"
+               class="text-center ">{{ order.deposit| currency }}</div>
+        </td>
+        <td class="p-2">
+          <div [ngClass]="{'text-green-500':  order.orderAction == 0, 'text-red-500' :  order.orderAction == 1 }"
+               class="text-center ">{{ order.orderAction == 0 ?"Buy":"Sell" }}</div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!--/table Card-->

@@ -1,0 +1,15 @@
+<div [ngClass]="[border + ' ', from + ' ', to + ' ']" class="bg-gradient-to-b border-b-4 rounded-lg shadow-xl p-5">
+  <div class="flex flex-row items-center">
+    <div class="shrink pr-4 hidden md:block">
+      <div [ngClass]="[background]" class="rounded-full p-5 h-16 w-16 grid place-content-center"><i
+        [ngClass]="['fa-' + icon]" class="fa fa-2x fa-inverse"></i></div>
+    </div>
+    <div class="flex-1 text-center">
+      <h5 class="font-bold uppercase text-gray-600 text-sm md:text-base">{{label}}</h5>
+      <h3 class="font-bold text-2xl lg:text-3xl">{{value}}
+        <ng-content></ng-content>
+      </h3>
+    </div>
+  </div>
+</div>
+

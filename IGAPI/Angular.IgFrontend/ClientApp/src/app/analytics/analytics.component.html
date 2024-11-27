@@ -1,0 +1,43 @@
+<page-layout (selectedOut)="get($event)" [targets]="tradingtargetNames" title="Analytics">
+  <div class="flex flex-wrap">
+    <div *ngIf="OrdersDetails.totalProfit != null" class="w-1/2 lg:w-1/4 p-4">
+      <!--Metric Card-->
+      <app-metric-card [color]="OrdersDetails.totalProfit > 0 ? 'green':'red'" icon="wallet"
+                       label="Total Profit" value="{{OrdersDetails.totalProfit|currency:'USD':true:'2.0'}}"><span
+        [ngClass]="[totalProfitIconBg]"><ng-content></ng-content><i [ngClass]="[totalProfitIcon]"
+                                                                    class="fas text-sm md:text-base"></i></span>
+      </app-metric-card>
+      <!--/Metric Card-->
+    </div>
+    <div *ngIf="OrdersDetails.winLossRate != null" class="w-1/2 lg:w-1/4 p-4">
+      <!--Metric Card-->
+      <app-metric-card [color]="OrdersDetails.winLossRate > 0.5 ? 'green':'red'" icon="chart-line"
+                       label="Win Loss Rate" value="{{OrdersDetails.winLossRate|percent}}"></app-metric-card>
+      <!--/Metric Card-->
+    </div>
+    <div *ngIf="OrdersDetails.minDeposit != null" class="w-1/2 lg:w-1/4 p-4">
+      <!--Metric Card-->
+      <app-metric-card [color]="OrdersDetails.minDeposit > 0 ? 'green':'red'" icon="coins"
+                       label="Min Deposit" value="{{OrdersDetails.minDeposit|currency:'USD':true:'2.0'}}"></app-metric-card>
+      <!--/Metric Card-->
+    </div>
+    <div *ngIf="OrdersDetails.maxDeposit != null" class="w-1/2 lg:w-1/4 p-4">
+      <!--Metric Card-->
+      <app-metric-card [color]="OrdersDetails.maxDeposit > 0 ? 'green':'red'" icon="coins"
+                       label="Max Deposit" value="{{OrdersDetails.maxDeposit|currency:'USD':true:'2.0'}}"></app-metric-card>
+      <!--/Metric Card-->
+    </div>
+  </div>
+  <div class="flex flex-row flex-wrap grow">
+    <div class="w-full xl:w-1/2 p-4">
+      <app-graph-card [labels]="chart1l" [values]=chart1 label="Total Profit"></app-graph-card>
+    </div>
+    <div class="w-full xl:w-1/2 p-4">
+      <app-table-card [Orders]="Orders" color="slate" label="Orders"></app-table-card>
+    </div>
+    <div class="w-full xl:w-1/2 p-4">
+      <app-graph-card [labels]="chart2l" [values]=chart2 label="Deposit"></app-graph-card>
+    </div>
+
+  </div>
+</page-layout>

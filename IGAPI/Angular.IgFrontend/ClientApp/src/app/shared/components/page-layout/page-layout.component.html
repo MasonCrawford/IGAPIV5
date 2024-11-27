@@ -1,0 +1,17 @@
+<div class="main-content bg-gray-100 grow mt-12 md:mt-2 pb-24 md:pb-5">
+
+  <div class="bg-gray-800 pt-3">
+    <div
+      class="rounded-tl-3xl bg-gradient-to-r flex flex-row justify-between from-blue-900 to-gray-800 p-4 shadow text-2xl">
+      <h3 class="font-bold  text-white pl-2">{{title}}</h3>
+      <div *ngIf="targets" class="mr-3">
+        <select (ngModelChange)="valueChanged($event)" *ngFor="let target of targets;" [(ngModel)]="selected"
+                class="select select-sm select-bordered">
+          <option disabled="disabled" selected="selected">Select trading targetr</option>
+          <option [value]="target['key']">{{target['value']}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,21 @@
+<div [hidden]="values.length < 1"
+     class="bg-gradient-to-b border-b-4 rounded-lg shadow-xl p-5 ma border-blue-500 from-slate-200 to-slate-100">
+  <div class="flex flex-wrap justify-between items-end">
+    <div class="flex items-start">
+      <div class="text-3xl font-bold text-gray-800 mr-2">{{current|currency}}</div>
+      <div [ngClass]="{'bg-green-500': percent > 0 , 'bg-red-500' :percent < 0, 'bg-yellow-500' :percent == 0 }"
+           class="text-sm font-semibold text-white px-1.5 rounded-full">{{percent|percent}}</div>
+    </div>
+    <div class="grow ml-2 mb-1">
+      <h5 class="flex flex-wrap justify-end font-bold uppercase text-gray-600">{{label}}</h5>
+    </div>
+  </div>
+
+  <div class="grow">
+    <canvas [data]="lineChartData" [options]="lineChartOptions" [type]="lineChartType"
+            baseChart
+            height="undefined"
+            width="undefined"
+    ></canvas>
+  </div>
+</div>
